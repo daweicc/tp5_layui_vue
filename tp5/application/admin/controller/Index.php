@@ -13,7 +13,8 @@ class Index
 {
     public function index()
     {
-        return view();
+        $data['list'] = 34563;
+        return view('index', $data);
     }
 
 }
