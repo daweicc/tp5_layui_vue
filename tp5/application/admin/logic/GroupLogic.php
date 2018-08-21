@@ -25,7 +25,7 @@ class GroupLogic
     {
         $groupList = Db::name('Group')->select();
         $groupList = TreeUtils::tree($groupList);
-        return PrintUtils::p($groupList);
+        return PrintUtils::S($groupList);
     }
 
 }
