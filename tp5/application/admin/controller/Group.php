@@ -15,14 +15,12 @@ class Group extends Common
 {
     /**
      * 获取部门列表信息
-     * @return string
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     public function index()
     {
-
-//        $t = GroupLogic::getGroupList();
-//        $groupList = model('group')->select();
-//        p(546746);die;
         $this->ajaxReturn(GroupLogic::getGroupList());
 
     }

@@ -84,15 +84,11 @@
                 ,cellMinWidth:80
                 ,cols: [[
                     {checkbox: true, fixed: true}
-                    ,{field:'nickname', title: '昵称',  sort: true, fixed: true, width:100}
-                    ,{title:'头像',toolbar: '#imgBar',width:100}
-                    ,{field:'sex_text', title: '性别'}
-                    ,{field:'age', title: '年龄'}
-                    ,{field:'lastUseData',title: '健康数据',width:100, toolbar:'#operateBar'}
-                    ,{field:'totalUse', title: '历史使用次数'}
-                    ,{field:'firstUseEquip', title: '来源设备ID'}
-                    ,{field:'public_name', title: '来源公众号'}
-                    ,{field:'firstUseTime', title: '初次使用时间'}
+                    ,{field:'id', title: 'ID'}
+                    ,{field:'text', title: '名称',  sort: true, fixed: true, width:100}
+                    ,{field:'remark', title: '备注'}
+                    ,{field:'create_time', title: '创建时间'}
+                    ,{field:'update_time', title: '更新时间'}
                 ]]
                 ,response: {             //定义后端 json 格式，详细参见官方文档
                     statusName: 'code',  //状态字段名称
