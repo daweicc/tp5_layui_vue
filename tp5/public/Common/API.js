@@ -1,11 +1,12 @@
-/***** desc:文件注释;author:daweicc *****/
+/***** desc:接口文件;author:daweicc *****/
 if (typeof jQuery === 'undefined') {
 
-    throw new Error('Api.js must need Jquery plugin!!')
+    document.write('Api.js must need Jquery plugin!!');
+    exit;
 
 }
 
-var ApiHost = 'http://tp5.com/index.php/';
+var ApiHost = 'http://tp5.com/index.php/Admin/';
 
 var API = {
 

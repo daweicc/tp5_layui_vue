@@ -26,7 +26,7 @@
                     </select>
                 </div>
 
-                
+
             </div>
 
 
@@ -72,39 +72,46 @@
 
     <script>
 
+        layui.use(['table'],function(){
 
-        //加载列表
-        table.render({
-            elem: '#LAY_table_user'
-            ,url: API.API_GET_GROUP_LIST
-            ,method: 'post'
-            ,where:{}
-            ,cellMinWidth:80
-            ,cols: [[
-                {checkbox: true, fixed: true}
-                ,{field:'nickname', title: '昵称',  sort: true, fixed: true, width:100}
-                ,{title:'头像',toolbar: '#imgBar',width:100}
-                ,{field:'sex_text', title: '性别'}
-                ,{field:'age', title: '年龄'}
-                ,{field:'lastUseData',title: '健康数据',width:100, toolbar:'#operateBar'}
-                ,{field:'totalUse', title: '历史使用次数'}
-                ,{field:'firstUseEquip', title: '来源设备ID'}
-                ,{field:'public_name', title: '来源公众号'}
-                ,{field:'firstUseTime', title: '初次使用时间'}
-            ]]
-            ,response: {             //定义后端 json 格式，详细参见官方文档
-                statusName: 'code',  //状态字段名称
-                statusCode: '200',   //状态字段成功值
-                msgName: 'msg',      //消息字段
-                countName: 'count',  //总数字段
-                dataName: 'data'     //数据字段
-            }
-            ,id: 'testReload'
-            ,page: true
-            ,done: function(res, curr, count){
+            var table = layui.table;
+            //加载列表
+            table.render({
+                elem: '#LAY_table_user'
+                ,url: API.API_GET_GROUP_LIST
+                ,method: 'post'
+                ,where:{}
+                ,cellMinWidth:80
+                ,cols: [[
+                    {checkbox: true, fixed: true}
+                    ,{field:'nickname', title: '昵称',  sort: true, fixed: true, width:100}
+                    ,{title:'头像',toolbar: '#imgBar',width:100}
+                    ,{field:'sex_text', title: '性别'}
+                    ,{field:'age', title: '年龄'}
+                    ,{field:'lastUseData',title: '健康数据',width:100, toolbar:'#operateBar'}
+                    ,{field:'totalUse', title: '历史使用次数'}
+                    ,{field:'firstUseEquip', title: '来源设备ID'}
+                    ,{field:'public_name', title: '来源公众号'}
+                    ,{field:'firstUseTime', title: '初次使用时间'}
+                ]]
+                ,response: {             //定义后端 json 格式，详细参见官方文档
+                    statusName: 'code',  //状态字段名称
+                    statusCode: '200',   //状态字段成功值
+                    msgName: 'msg',      //消息字段
+                    countName: 'count',  //总数字段
+                    dataName: 'data'     //数据字段
+                }
+                ,id: 'testReload'
+                ,page: true
+                ,done: function(res, curr, count){
 
-            }
-        });
+                }
+            });
+
+        })
+
+
+
 
 
 

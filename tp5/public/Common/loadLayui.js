@@ -1,4 +1,4 @@
-/***** desc:文件注释;author:daweicc *****/
+/***** desc:公共文件加载;author:daweicc *****/
 
 
 /**
@@ -16,6 +16,11 @@ document.write('<script src="' + SERVER_PATH + 'public/moduleLayui/layui/layui.j
 
 
 /**
+ * 加载jquery文件
+ */
+document.write('<script src="' + SERVER_PATH + 'public/Common/jquery.min.js" type="text/javascript"></sc' + 'ript>')
+
+/**
  * 加载接口文件
  */
-document.write('<script src="' + SERVER_PATH + 'public/Common/API.js" type="text/javascript" ></sc' + 'ript>');
+document.write('<script src="' + SERVER_PATH + 'public/Common/API.js?'+Math.random()+'" type="text/javascript" ></sc' + 'ript>');

@@ -9,12 +9,14 @@
 namespace app\admin\controller;
 
 
-class Index
+class Index extends Common
 {
     public function index()
     {
         $data['list'] = 34563;
-        return view('index', $data);
+
+        $this->ajaxReturn($data);
+
     }
 
 }

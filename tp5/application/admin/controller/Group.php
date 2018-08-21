@@ -9,13 +9,22 @@
 namespace app\admin\controller;
 
 
-class Group
+use app\admin\logic\GroupLogic;
+
+class Group extends Common
 {
+    /**
+     * 获取部门列表信息
+     * @return string
+     */
     public function index()
     {
 
-        return json_encode(array('code'=>564, 'msg'=>745));
-        
+//        $t = GroupLogic::getGroupList();
+//        $groupList = model('group')->select();
+//        p(546746);die;
+        $this->ajaxReturn(GroupLogic::getGroupList());
+
     }
 
 }
