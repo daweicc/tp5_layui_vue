@@ -3,6 +3,41 @@
 
 <head>
 </head>
+<style>
+    .layui-nav-more-up{
+        margin-top: -9px !important;
+        border-style: dashed dashed solid !important;
+        border-color: transparent transparent #ffb800 !important;
+        right: 114px !important;
+        content: '' !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+        -webkit-transition: all 0.2s !important;
+        position: absolute !important;
+        top: 50% !important;
+        border-width: 8px !important;
+    }
+
+    .layui-nav-more-down{
+        right: 10px !important;
+        content: '' !important;
+        width: 0 !important;
+        height: 0 !important;
+        border-style: solid dashed dashed !important;
+        border-color: #ffb800 transparent transparent !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+        -webkit-transition: all .2s !important;
+        position: absolute !important;
+        top: 50% !important;
+        margin-top: -3px !important;
+        border-width: 8px !important;
+        border-top-color: #ffb800 !important;
+        right:114px !important;
+    }
+</style>
 
     <blockquote class="layui-elem-quote layui-text">
         <h2>MY GROUP_LIST</h2>
@@ -55,6 +90,19 @@
     </script>
     <!-- 实例 -->
 
+
+
+    <script type="text/html" id="text_templet">
+        {{#  if(d.children !== ""){ }}
+
+        <span class="layui-nav-item layui-nav-itemed"><span class="layui-nav-more-down"></span><span style="margin-left:5px;"> {{d.text}}</span></span>
+
+        {{#  } else { }}
+        {{d.text}}
+        {{#  }}}
+    </script>
+
+
     <script>
 
         layui.use(['table'],function(){
@@ -70,7 +118,7 @@
                 ,cols: [[
                     {checkbox: true, fixed: true}
                     ,{field:'id', title: 'ID',align:'center'}
-                    ,{field:'text', title: '名称',align:'center'}
+                    ,{field:'text', title: '名称',align:'left', templet:'#text_templet'}
                     ,{field:'remark', title: '备注',align:'center'}
                     ,{field:'create_time', title: '创建时间',align:'center'}
                     ,{field:'update_time', title: '更新时间',align:'center'}
@@ -89,6 +137,19 @@
                 }
             });
 
+
+            $('.layui-nav-item').find('span').click(function(){
+                alert(4674)
+                var obj = $(this);
+                if (obj.hasClass('layui-nav-more-up')) {
+                    obj.removeClass('layui-nav-more-up');
+                    obj.addClass('layui-nav-more-down');
+                } else if(obj.hasClass('layui-nav-more-down')){
+                    obj.removeClass('layui-nav-more-down');
+                    obj.addClass('layui-nav-more-up');
+                }
+            })
+
         })
 
 
@@ -106,6 +167,25 @@
         //         });
         //     }
         // };
+        
+        //
+        // function changeNav(obj) {
+        //
+        //     if (obj.hasClass('layui-nav-more-up')) {
+        //         obj.removeClass('layui-nav-more-up');
+        //         obj.addClass('layui-nav-more-down');
+        //     } else if(obj.hasClass('layui-nav-more-down')){
+        //         obj.removeClass('layui-nav-more-down');
+        //         obj.addClass('layui-nav-more-up');
+        //     }
+        //
+        //     // obj.toggle({
+        //     //     function(){obj.css({"class":"layui-nav-more-up"});},
+        //     //     function(){obj.css({"class":"layui-nav-more-down"});}
+        //     // })
+        //     // obj.toggle("layui-nav-more-up");
+        //     // obj.toggleClass("layui-nav-more-down");
+        // }
 
     </script>
 

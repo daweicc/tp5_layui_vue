@@ -43,8 +43,6 @@ class Common extends Model
 
         $this->limit($pageSize)->page($page);
 
-        $this->where($where);
-
         if ($orderBy == '') {
             $pk = $this->getPk();
             $order = $pk . ' DESC';
@@ -59,7 +57,7 @@ class Common extends Model
             $this->order($orderBy);
         }
 
-        $data = Db::table($this->getTable())->select();
+        $data = Db::table($this->getTable())->where($where)->select();
 
         $data = $this->formatData($data);                                   //格式化数据
 
@@ -132,7 +130,7 @@ class Common extends Model
             $this->order($orderBy);
         }
 
-        $data = $this->select();
+        $data = Db::table($this->getTable())->where($where)->select();
 
         $data = $this->formatData($data);
 
