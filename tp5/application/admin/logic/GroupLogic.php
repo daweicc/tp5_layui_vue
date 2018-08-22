@@ -23,9 +23,8 @@ class GroupLogic
      */
     public static function getGroupList()
     {
-        $groupList = Db::name('Group')->select();
-        $groupList = TreeUtils::tree($groupList);
-        return PrintUtils::S($groupList);
+        $groupList = model('Group')->getDataByPage();
+        return $groupList;
     }
 
 }

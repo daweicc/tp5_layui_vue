@@ -25,8 +25,6 @@
                         <option value="2">ADMIN</option>
                     </select>
                 </div>
-
-
             </div>
 
 
@@ -48,22 +46,9 @@
             </div>
         </div>
     </form>
-    <div style="margin:15px;">
-        <a href="javascript:void()" class="layui-btn layui-btn-normal"  id="download">EXPORT</a>
-    </div>
-    <table class="layui-hide" id="LAY_table_user" lay-filter="fansData"></table>
 
+    <table class="layui-hide" id="LAY_table_user" lay-filter="groupData"></table>
 
-
-
-    <script type="text/html" id="operateBar">
-        {{#  if(d.health === 1){ }}
-        <span class="layui-btn layui-btn-primary layui-btn-xs fitData" lay-event="put">查看</span>
-        <input type='hidden' class='lastUseData' value='{{d.lastUseData}}'>
-        {{#  } else { }}
-        ---
-        {{# } }}
-    </script>
     <!-- table操作栏 -->
     <script type="text/html" id="imgBar">
 
@@ -84,11 +69,11 @@
                 ,cellMinWidth:80
                 ,cols: [[
                     {checkbox: true, fixed: true}
-                    ,{field:'id', title: 'ID'}
-                    ,{field:'text', title: '名称',  sort: true, fixed: true, width:100}
-                    ,{field:'remark', title: '备注'}
-                    ,{field:'create_time', title: '创建时间'}
-                    ,{field:'update_time', title: '更新时间'}
+                    ,{field:'id', title: 'ID',align:'center'}
+                    ,{field:'text', title: '名称',align:'center'}
+                    ,{field:'remark', title: '备注',align:'center'}
+                    ,{field:'create_time', title: '创建时间',align:'center'}
+                    ,{field:'update_time', title: '更新时间',align:'center'}
                 ]]
                 ,response: {             //定义后端 json 格式，详细参见官方文档
                     statusName: 'code',  //状态字段名称
@@ -99,8 +84,8 @@
                 }
                 ,id: 'testReload'
                 ,page: true
-                ,done: function(res, curr, count){
-
+                ,done: function(res){
+                    console.log(res);
                 }
             });
 
