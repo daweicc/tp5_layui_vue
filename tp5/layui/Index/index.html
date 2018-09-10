@@ -86,6 +86,16 @@
     </div>
 
     <script>
+
+        $(function(){
+            var url = "//tp.daweicc.com/LayUI/Index/index2";
+
+            $.post(url, {}, function(re){
+                console.log(re);
+            })
+        })
+
+
         //JavaScript代码区域
         layui.use('element', function(){
             var element = layui.element;
