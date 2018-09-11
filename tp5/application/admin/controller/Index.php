@@ -7,8 +7,9 @@
  */
 
 namespace app\admin\controller;
+//use PhpAmqpLib\Connection\AMQPSocketConnection;
+//vendor('PhpAmqpLib.Connection.AMQPSocketConnection');
 use think\Request;
-
 
 class Index extends Common
 {
@@ -23,6 +24,12 @@ class Index extends Common
     }
 
 
+//    public function server()
+//    {
+//        $conn = new \AMQPSocketConnection('localhost', 5672, 'root', 'root');
+//
+//        var_dump($conn);die;
+//    }
 
     /**
      * 服务端，接收数据，消费者
@@ -33,11 +40,13 @@ class Index extends Common
 
         $options = array(
             'host' => '127.0.0.1',
+            'vhost' => '/',
             'port' => '5672',
-            'virtual' => '/',
-            'login' => 'guest',
-            'password' => 'guest',
+            'login' => 'root',
+            'password' => 'root',
+
         );
+
 
         $connection = new \AMQPConnection($options);
         if (!$connection->connect()) {
@@ -71,11 +80,14 @@ class Index extends Common
             });
         }
     }
-
-
+//
+//
     /**
      * 客户端，生产数据，生产者
      * @param Request $request
+     * @throws \AMQPChannelException
+     * @throws \AMQPConnectionException
+     * @throws \AMQPExchangeException
      */
     public function client(Request $request)
     {
@@ -84,12 +96,12 @@ class Index extends Common
         $options = array(
             'host' => '127.0.0.1',
             'port' => '5672',
-            'virtual' => '/',
-            'login' => 'guest',
-            'password' => 'guest',
+            'vhost' => '/',
+            'login' => 'root',
+            'password' => 'root',
         );
-
         $connection = new \AMQPConnection($options);
+        p($connection);die;
         if (!$connection->connect()) {
             die("Cannot connect to the broker!\n");
         }
