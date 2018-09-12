@@ -20,6 +20,12 @@ document.write('<script src="' + SERVER_PATH + 'public/moduleVue/vue/vue.js" typ
  */
 document.write('<script src="' + SERVER_PATH + 'public/Common/jquery.min.js" type="text/javascript"></sc' + 'ript>')
 
+
+/**
+ * 手机端自适应
+ */
+document.write('<script src="' + SERVER_PATH + 'public/Common/mobile_self_adaption.js" type="text/javascript" ></sc' + 'ript>');
+
 /**
  * 加载接口文件
  */
